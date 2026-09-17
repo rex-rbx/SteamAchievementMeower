@@ -64,6 +64,8 @@ elif sys.argv[2] == "--all":
                 else:
                     print(f"Setting achievement {ach_name} to true because no argument was provided")
                     steam.SteamAPI_ISteamUserStats_SetAchievement(stats, ach_name_bytes)
+        steam.SteamAPI_ISteamUserStats_StoreStats(stats)
+        steam.SteamAPI_Shutdown()
         sys.exit(0)
 if not stats:
     print("Failed to get ISteamUserStats interface")
